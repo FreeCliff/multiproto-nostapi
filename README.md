@@ -12,3 +12,6 @@ Screenshot taken on [BetaValley](https://www.youtube.com/watch?v=XNROtZUusJE) my
 ![Version List](img/version_list.png)
 MojangFix integration
 ![Server List](img/server_list.png)
+
+### Precompiled version
+Go [here](https://nightly.link/skibidiware/multiproto-nostapi/workflows/build/master), extract the .jar from the .zip and add it to your loader mods.
