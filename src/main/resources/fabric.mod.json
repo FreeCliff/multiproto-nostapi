@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": "multiproto-nostapi",
+  "version": "${version}",
+  "name": "Multiproto No StAPI",
+  "description": "Protocol translation mod without the retarded StAPI bloatware trash",
+  "authors": [
+    "0n1",
+    "8aeszmrteutjqe"
+  ],
+  "contact": {
+    "homepage": "https://github.com/skibidiware/multiproto-nostapi",
+    "sources": "https://github.com/skibidiware/multiproto-nostapi"
+  },
+  "license": "LGPLv3",
+  "icon": "assets/multiproto-nostapi/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "me.howard.multiprotonostapi.MultiprotoNoStAPI"
+    ]
+  },
+  "mixins": [
+    "multiproto-nostapi.mixins.json"
+  ],
+  "accessWidener": "multiproto-nostapi.accesswidener",
+  "depends": {
+    "fabricloader": ">=0.13.3",
+    "minecraft": "1.0.0-beta.7.3"
+  },
+  "recommends": {
+    "modmenu": "*"
+  },
+  "suggests": {
+    "mojangfix": "*"
+  },
+  "custom": {
+    "loom:injected_interfaces": {
+      "pl/js6pak/mojangfix/client/gui/multiplayer/ServerData": [
+        "me/howard/multiproto/mixinterface/MultiprotoServerData"
+      ]
+    }
+  }
+}

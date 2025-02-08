@@ -1,0 +1,40 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "me.howard.multiprotonostapi.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "plugin": "me.howard.multiprotonostapi.mixin.MultiprotoMixinPlugin",
+  "mixins": [
+    "mojangfix.MixinServerData",
+    "network.packet.MixinPacket",
+    "network.packet.c2s.play.MixinClickSlotC2SPacket",
+    "network.packet.c2s.play.MixinPlayerInteractBlockC2SPacket",
+    "network.packet.login.MixinLoginHelloPacket",
+    "network.packet.play.MixinPlayerRespawnPacket",
+    "network.packet.s2c.play.MixinEntityEquipmentUpdateS2CPacket",
+    "network.packet.s2c.play.MixinEntitySpawnS2CPacket",
+    "network.packet.s2c.play.MixinItemEntitySpawnS2CPacket",
+    "network.packet.s2c.play.MixinLivingEntitySpawnS2CPacket",
+    "network.packet.s2c.play.MixinScreenHandlerSlotUpdateS2CPacket",
+    "network.player.MixinMultiplayerClientPlayerEntity",
+    "parity.block.BlockAccessor",
+    "parity.item.ItemAccessor",
+    "parity.item.MixinSwordItem",
+    "parity.item.ToolItemAccessor"
+  ],
+  "client": [
+    "gui.MixinMultiplayerScreen",
+    "mojangfix.DirectConnectScreenAccessor",
+    "mojangfix.EditServerScreenAccessor",
+    "mojangfix.MixinDirectConnectScreen",
+    "mojangfix.MixinEditServerScreen",
+    "mojangfix.MixinMultiplayerScreen",
+    "mojangfix.MixinMultiplayerServerListWidget",
+    "network.player.MixinMultiplayerInteractionManager",
+    "parity.misc.MixinMinecraft",
+    "parity.network.MixinClientNetworkHandler"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

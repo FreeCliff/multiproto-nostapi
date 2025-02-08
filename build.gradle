@@ -1,0 +1,82 @@
+plugins {
+    id 'babric-loom' version '1.4.2'
+}
+
+sourceCompatibility = targetCompatibility = JavaVersion.VERSION_17
+
+archivesBaseName = project.archives_base_name
+version = project.mod_version
+group = project.maven_group
+
+loom {
+    mixin {
+        useLegacyMixinAp = true
+    }
+    gluedMinecraftJar()
+    customMinecraftManifest.set("https://babric.github.io/manifest-polyfill/${minecraft_version}.json")
+    intermediaryUrl.set("https://maven.glass-launcher.net/babric/babric/intermediary/%1\$s/intermediary-%1\$s-v2.jar")
+    accessWidenerPath = file("src/main/resources/multiproto-nostapi.accesswidener")
+}
+
+repositories {
+    maven {
+        name = "Babric"
+        url = "https://maven.glass-launcher.net/babric"
+    }
+    maven {
+        name = "Glass Releases"
+        url = "https://maven.glass-launcher.net/releases"
+    }
+    maven {
+        name = "Jitpack"
+        url = "https://jitpack.io"
+    }
+    exclusiveContent {
+        forRepository {
+            maven {
+                name = "Modrinth"
+                url = "https://api.modrinth.com/maven"
+            }
+        }
+        filter {
+            includeGroup "maven.modrinth"
+        }
+    }
+    mavenCentral()
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+    mappings "net.glasslauncher:biny:${project.mappings}:v2"
+    modImplementation "babric:fabric-loader:${project.loader_version}"
+
+    implementation "org.slf4j:slf4j-api:1.8.0-beta4"
+    implementation "org.apache.logging.log4j:log4j-slf4j18-impl:2.17.2"
+    implementation "blue.endless:jankson:1.2.1"
+
+    modImplementation("com.github.calmilamsy:ModMenu:${project.modmenu_version}") {
+        transitive false
+    }
+    modImplementation("maven.modrinth:mojangfix:0.5.3") {
+        transitive false
+    }
+    implementation("com.github.GeyserMC:MCAuthLib:d9d773e5d50327c33898c65cd545a4f6ef3ba1b5")
+}
+
+processResources {
+    inputs.property "version", project.version
+
+    filesMatching("fabric.mod.json") {
+        expand "version": project.version
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    it.options.release = 17
+}
+
+jar {
+    from("LICENSE") {
+        rename { "${it}_${archives_base_name}" }
+    }
+}
