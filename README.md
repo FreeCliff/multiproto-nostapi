@@ -1,5 +1,5 @@
 # ![Multiproto](img/icon_27x27.png) Multiproto No StAPI
-Protocol translation mod for Babric without the retarded StAPI bloat.
+Protocol translation mod for Babric without the retarded StAPI bloat. Original mod [here](https://modrinth.com/mod/multiproto). 
 
 Screenshot taken on [BetaValley](https://www.youtube.com/watch?v=XNROtZUusJE) my beloved <3
 ![Screenshot](img/screenshot.png)
