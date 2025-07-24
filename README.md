@@ -14,4 +14,4 @@ MojangFix integration
 ![Server List](img/server_list.png)
 
 ### Precompiled version
-Go [here](https://nightly.link/skibidiware/multiproto-nostapi/workflows/build/master/Artifacts.zip), extract the .jar from the .zip and add it to your loader mods.
+Go [here](https://nightly.link/FreeCliff/multiproto-nostapi/workflows/build/master/Artifacts.zip), extract the .jar from the .zip and add it to your loader mods.
