@@ -18,6 +18,7 @@ jobs:
       - name: build
         run: |
           git fetch origin master
+          chmod +x gradlew
           ./gradlew build
       - name: capture build artifacts
         uses: actions/upload-artifact@v4.4.3
